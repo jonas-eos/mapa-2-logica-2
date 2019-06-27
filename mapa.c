@@ -15,14 +15,13 @@ enum indexes {
 // Dependência
 // - const LINHA
 // - const COLUNA
-void preencherVendas() {
+void preencherVendas(double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
-  double vendas[LINHA][COLUNA];
   for (semana = 0; semana < LINHA; semana++) {
     printf("Semana %i\n", semana);
     for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
       printf("Dia: %i", diaDaSemana);
-      scanf("%lf", &vendas[semana][diaDaSemana]);
+      scanf("%lf", &__tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
 }
@@ -30,6 +29,7 @@ void preencherVendas() {
 //******************************************************************************
 // Programa principal
 int main() {
-  preencherVendas();
+  double vendas[LINHA][COLUNA];
+  preencherVendas(vendas);
   return 0;
 }
