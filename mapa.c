@@ -15,7 +15,7 @@ void preencherVendas() {
   for (semana = 0; semana < LINHA; semana++) {
     printf("Semana %i\n", semana);
     for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
-      prinf("Dia: %i", diaDaSemana);
+      printf("Dia: %i", diaDaSemana);
       scanf("%lf", &vendas[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
