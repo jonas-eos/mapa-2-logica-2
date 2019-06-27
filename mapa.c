@@ -46,11 +46,22 @@ void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   }    // Semana
 }
 
+double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
+  int semana, diaDaSemana;
+  int acumulador = 0;
+  for (semana = 0; semana < LINHA; semana++) {
+    for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
+      acumulador += __tabela[semana][diaDaSemana];
+    }  // diaDaSemana
+  }    // Semana
+  return (double)acumulador / (LINHA * COLUNA);
+}
 //******************************************************************************
 // Programa principal
 int main() {
   double vendas[LINHA][COLUNA];
   preencherVendas(vendas);
   exibirVendasDiaria(vendas);
+  printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
   return 0;
 }
