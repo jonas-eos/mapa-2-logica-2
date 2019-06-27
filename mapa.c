@@ -12,6 +12,8 @@ enum indexes {
 //******************************************************************************
 // Descrição
 // - preenche uma matriz de vendas.
+// Parâmetros
+// - __tabela: referencia da tabela onde será salvo as vendas
 // Dependência
 // - const LINHA
 // - const COLUNA
@@ -26,6 +28,14 @@ void preencherVendas(double __tabela[LINHA][COLUNA]) {
   }    // Semana
 }
 
+//******************************************************************************
+// Descrição
+// - exibi todas as vendas de todos os dias e de todas as semanas
+// Parâmetros
+// __tabela: tabela onde tem os preços salvos
+// Depêndencia
+// const LINHA
+// const COLUNA
 void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   for (semana = 0; semana < LINHA; semana++) {
