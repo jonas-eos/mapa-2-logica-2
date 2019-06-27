@@ -26,12 +26,12 @@ void preencherVendas(double __tabela[LINHA][COLUNA]) {
   }    // Semana
 }
 
-void exibirVendasDiaria(const double** __tabela) {
+void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   for (semana = 0; semana < LINHA; semana++) {
     printf("Semana %i\n", semana);
     for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
-      printf("Dia: %i R$: %.2f\n", diaDaSemana, __tabela[semana][diaDaSemana]););
+      printf("Dia: %i R$: %.2f\n", diaDaSemana, __tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
 }
@@ -41,5 +41,6 @@ void exibirVendasDiaria(const double** __tabela) {
 int main() {
   double vendas[LINHA][COLUNA];
   preencherVendas(vendas);
+  exibirVendasDiaria(vendas);
   return 0;
 }
