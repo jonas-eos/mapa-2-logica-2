@@ -9,6 +9,12 @@ enum indexes {
   COLUNA = 6
 };
 
+//******************************************************************************
+// Descrição
+// - preenche uma matriz de vendas.
+// Dependência
+// - const LINHA
+// - const COLUNA
 void preencherVendas() {
   int semana, diaDaSemana;
   double vendas[LINHA][COLUNA];
@@ -21,6 +27,9 @@ void preencherVendas() {
   }    // Semana
 }
 
+//******************************************************************************
+// Programa principal
 int main() {
+  preencherVendas();
   return 0;
 }
