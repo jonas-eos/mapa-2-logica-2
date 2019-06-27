@@ -46,16 +46,25 @@ void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   }    // Semana
 }
 
+//******************************************************************************
+// Descrição
+// - Calcula a média de vendas do mês e retorna seu valor
+// Parâmetros
+// - __tabela: tabela base onde estã salvo as vendas realizadas
+// Dependência
+// - const LINHA
+// - const COLUNA
 double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   int acumulador = 0;
   for (semana = 0; semana < LINHA; semana++) {
-    for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
+    for (diaDaSemana = 0; diaDaSemana < COLUNA; diaDaSemana++) {
       acumulador += __tabela[semana][diaDaSemana];
     }  // diaDaSemana
   }    // Semana
   return (double)acumulador / (LINHA * COLUNA);
 }
+
 //******************************************************************************
 // Programa principal
 int main() {
