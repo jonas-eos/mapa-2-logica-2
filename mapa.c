@@ -27,6 +27,16 @@ void preencherVendas() {
   }    // Semana
 }
 
+void exibirVendasDiaria(const double** __tabela) {
+  int semana, diaDaSemana;
+  for (semana = 0; semana < LINHA; semana++) {
+    printf("Semana %i\n", semana);
+    for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
+      printf("Dia: %i R$: %.2f\n", diaDaSemana, __tabela[semana][diaDaSemana]););
+    }  // diaDaSemana
+  }    // Semana
+}
+
 //******************************************************************************
 // Programa principal
 int main() {
