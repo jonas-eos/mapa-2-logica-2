@@ -65,12 +65,39 @@ double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
   return (double)acumulador / (LINHA * COLUNA);
 }
 
+//
+unsigned short int menu() {
+  unsigned short int opcao;
+  puts("Informe a operação desejada:");
+  puts("1 - Cadastrar vendas");
+  puts("2 - Exibir as vendas do mês");
+  puts("3 - Média monetaria de vendas realizada no mês");
+  puts("outro - Sair");
+  scanf("%u", &opcao);
+  puts("deu certo");
+  return opcao;
+}
+
 //******************************************************************************
 // Programa principal
 int main() {
   double vendas[LINHA][COLUNA];
-  preencherVendas(vendas);
-  exibirVendasDiaria(vendas);
-  printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
+  unsigned short int finalizarPrograma = 0;
+  do {
+    printf("%u", menu());
+    switch (menu()) {
+      case 1:
+        preencherVendas(vendas);
+        break;
+      case 2:
+        exibirVendasDiaria(vendas);
+        break;
+      case 3:
+        printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
+        break;
+      default:
+        finalizarPrograma = 1;
+    }
+  } while (!finalizarPrograma);
   return 0;
 }
