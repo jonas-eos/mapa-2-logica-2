@@ -65,7 +65,9 @@ double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
   return (double)acumulador / (LINHA * COLUNA);
 }
 
-//
+//******************************************************************************
+// Descrição
+// - Menu principal do programa
 unsigned short int menu() {
   unsigned short int opcao;
   puts("Informe a operação desejada:");
