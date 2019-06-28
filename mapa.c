@@ -3,7 +3,7 @@
 
 /// Constante inicializadora
 const int INICIALIZADOR = 0;
-enum opcoes{ CADASTRAR = 1, EXIBIR_VENDAS = 2, CALCULAR_MEDIA = 3};
+enum opcoes { CADASTRAR = 1, EXIBIR_VENDAS = 2, CALCULAR_MEDIA = 3 };
 enum indexes {
 
   /// Usado como guia para semanas
@@ -14,7 +14,7 @@ enum indexes {
 };
 
 /// Tipo lógico, retorno falso ou verdadeiro
-typedef enum valores_logico{FALSO, VERDADEIRO} logico;
+typedef enum valores_logico { FALSO, VERDADEIRO } logico;
 
 //******************************************************************************
 // Descrição
@@ -78,11 +78,13 @@ double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
 unsigned short int menu() {
   unsigned short int opcao;
   system("cls");
-  puts("Informe a operação desejada:");
-  puts("1 - Cadastrar vendas");
-  puts("2 - Exibir as vendas do mês");
-  puts("3 - Média monetaria de vendas realizada no mês");
-  puts("outro - Sair");
+  puts("***********************-MENU-***********************");
+  puts("* Informe a operação desejada:                     *");
+  puts("* 1 - Cadastrar vendas                             *");
+  puts("* 2 - Exibir as vendas do mês                      *");
+  puts("* 3 - Média monetaria de vendas realizada no mês   *");
+  puts("* outro - Sair                                     *");
+  puts("****************************************************");
   scanf("%u", &opcao);
   return opcao;
 }
@@ -104,7 +106,7 @@ int main() {
         printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
         break;
       default:
-      finalizarPrograma = VERDADEIRO;
+        finalizarPrograma = VERDADEIRO;
     }
     system("pause");
   } while (!finalizarPrograma);
