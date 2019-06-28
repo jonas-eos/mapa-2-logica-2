@@ -21,9 +21,9 @@ enum indexes {
 void preencherVendas(double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   for (semana = 0; semana < LINHA; semana++) {
-    printf("Semana %i\n", semana);
+    printf("Semana %i\n", semana + 1);
     for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
-      printf("Dia: %i", diaDaSemana);
+      printf("Dia %i: ", diaDaSemana);
       scanf("%lf", &__tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
