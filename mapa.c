@@ -76,7 +76,6 @@ unsigned short int menu() {
   puts("3 - Média monetaria de vendas realizada no mês");
   puts("outro - Sair");
   scanf("%u", &opcao);
-  puts("deu certo");
   return opcao;
 }
 
@@ -86,7 +85,6 @@ int main() {
   double vendas[LINHA][COLUNA];
   unsigned short int finalizarPrograma = 0;
   do {
-    printf("%u", menu());
     switch (menu()) {
       case 1:
         preencherVendas(vendas);
@@ -97,8 +95,10 @@ int main() {
       case 3:
         printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
         break;
-      default:
-        finalizarPrograma = 1;
+      default: {
+      finalizarPrograma = 1;
+      break;
+      }
     }
   } while (!finalizarPrograma);
   return 0;
