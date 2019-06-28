@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 enum indexes {
 
@@ -70,6 +71,7 @@ double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
 // - Menu principal do programa
 unsigned short int menu() {
   unsigned short int opcao;
+  system("cls");
   puts("Informe a operação desejada:");
   puts("1 - Cadastrar vendas");
   puts("2 - Exibir as vendas do mês");
@@ -82,7 +84,7 @@ unsigned short int menu() {
 //******************************************************************************
 // Programa principal
 int main() {
-  double vendas[LINHA][COLUNA];
+  double vendas[LINHA][COLUNA] = {0};
   unsigned short int finalizarPrograma = 0;
   do {
     switch (menu()) {
@@ -95,11 +97,10 @@ int main() {
       case 3:
         printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
         break;
-      default: {
+      default:
       finalizarPrograma = 1;
-      break;
-      }
     }
+    system("pause");
   } while (!finalizarPrograma);
   return 0;
 }
