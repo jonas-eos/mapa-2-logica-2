@@ -1,9 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//##############################################################################
+// Definição de dados
+
+/// Tipo lógico, retorno falso ou verdadeiro
+typedef enum valores_logico { FALSO, VERDADEIRO } logico;
+
+//##############################################################################
+// Constantes
+
 /// Constante inicializadora
 const int INICIALIZADOR = 0;
+
+/// Identificadores das opções válidas no programa principal
 enum opcoes { CADASTRAR = 1, EXIBIR_VENDAS = 2, CALCULAR_MEDIA = 3 };
+
+/// Identificadores dos indexes para controlar as posições da tabela de vendas
 enum indexes {
 
   /// Usado como guia para semanas
@@ -13,17 +26,26 @@ enum indexes {
   COLUNA = 6
 };
 
-/// Tipo lógico, retorno falso ou verdadeiro
-typedef enum valores_logico { FALSO, VERDADEIRO } logico;
-typedef enum dia_semana {
+/// Identificadores dos dias da semana
+enum dia_semana {
   SEGUNDA,
   TERCA,
   QUARTA,
   QUINTA,
   SEXTA,
   SABADO
-} dataSemana;
+};
+//##############################################################################
+// Métodos
 
+//******************************************************************************
+// Descrição
+// - Retorna qual o dia da semana correspondente ao código informado
+// Parâmetro
+// - __cod_data: o código da data que a função precisa para fornecer o dia da
+//    semana correspondente
+// Dependência
+// - enum dia_semana: onde consta a tabela dos dias da semanas correspondnete
 char* obterDiaDaSemana(int __cod_data) {
   switch (__cod_data) {
     case SEGUNDA:
@@ -115,7 +137,7 @@ unsigned short int menu() {
   return opcao;
 }
 
-//******************************************************************************
+//##############################################################################
 // Programa principal
 int main() {
   double vendas[LINHA][COLUNA] = {INICIALIZADOR};
