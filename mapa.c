@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/// Constante inicializadora
+const int INICIALIZADOR = 0;
+enum opcoes{ CADASTRAR = 1, EXIBIR_VENDAS = 2, CALCULAR_MEDIA = 3};
 enum indexes {
 
   /// Usado como guia para semanas
@@ -20,9 +23,9 @@ enum indexes {
 // - const COLUNA
 void preencherVendas(double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
-  for (semana = 0; semana < LINHA; semana++) {
+  for (semana = INICIALIZADOR; semana < LINHA; semana++) {
     printf("Semana %i\n", semana + 1);
-    for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
+    for (diaDaSemana = INICIALIZADOR; diaDaSemana < COLUNA; diaDaSemana++) {
       printf("Dia %i: ", diaDaSemana);
       scanf("%lf", &__tabela[semana][diaDaSemana]);
     }  // diaDaSemana
@@ -39,9 +42,9 @@ void preencherVendas(double __tabela[LINHA][COLUNA]) {
 // const COLUNA
 void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
-  for (semana = 0; semana < LINHA; semana++) {
+  for (semana = INICIALIZADOR; semana < LINHA; semana++) {
     printf("Semana %i\n", semana);
-    for (diaDaSemana = 0; diaDaSemana < 6; diaDaSemana++) {
+    for (diaDaSemana = INICIALIZADOR; diaDaSemana < COLUNA; diaDaSemana++) {
       printf("Dia: %i R$: %.2f\n", diaDaSemana, __tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
@@ -57,9 +60,9 @@ void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
 // - const COLUNA
 double calcularMediaDoMes(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
-  int acumulador = 0;
-  for (semana = 0; semana < LINHA; semana++) {
-    for (diaDaSemana = 0; diaDaSemana < COLUNA; diaDaSemana++) {
+  int acumulador = INICIALIZADOR;
+  for (semana = INICIALIZADOR; semana < LINHA; semana++) {
+    for (diaDaSemana = INICIALIZADOR; diaDaSemana < COLUNA; diaDaSemana++) {
       acumulador += __tabela[semana][diaDaSemana];
     }  // diaDaSemana
   }    // Semana
@@ -84,17 +87,17 @@ unsigned short int menu() {
 //******************************************************************************
 // Programa principal
 int main() {
-  double vendas[LINHA][COLUNA] = {0};
-  unsigned short int finalizarPrograma = 0;
+  double vendas[LINHA][COLUNA] = {INICIALIZADOR};
+  unsigned short int finalizarPrograma = INICIALIZADOR;
   do {
     switch (menu()) {
-      case 1:
+      case CADASTRAR:
         preencherVendas(vendas);
         break;
-      case 2:
+      case EXIBIR_VENDAS:
         exibirVendasDiaria(vendas);
         break;
-      case 3:
+      case CALCULAR_MEDIA:
         printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
         break;
       default:
@@ -102,5 +105,5 @@ int main() {
     }
     system("pause");
   } while (!finalizarPrograma);
-  return 0;
+  return EXIT_SUCCESS;
 }
