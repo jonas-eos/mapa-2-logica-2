@@ -13,6 +13,9 @@ enum indexes {
   COLUNA = 6
 };
 
+/// Tipo lógico, retorno falso ou verdadeiro
+typedef enum valores_logico{FALSO, VERDADEIRO} logico;
+
 //******************************************************************************
 // Descrição
 // - preenche uma matriz de vendas.
@@ -88,7 +91,7 @@ unsigned short int menu() {
 // Programa principal
 int main() {
   double vendas[LINHA][COLUNA] = {INICIALIZADOR};
-  unsigned short int finalizarPrograma = INICIALIZADOR;
+  logico finalizarPrograma = FALSO;
   do {
     switch (menu()) {
       case CADASTRAR:
@@ -101,7 +104,7 @@ int main() {
         printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
         break;
       default:
-      finalizarPrograma = 1;
+      finalizarPrograma = VERDADEIRO;
     }
     system("pause");
   } while (!finalizarPrograma);
