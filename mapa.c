@@ -15,6 +15,31 @@ enum indexes {
 
 /// Tipo lógico, retorno falso ou verdadeiro
 typedef enum valores_logico { FALSO, VERDADEIRO } logico;
+typedef enum dia_semana {
+  SEGUNDA,
+  TERCA,
+  QUARTA,
+  QUINTA,
+  SEXTA,
+  SABADO
+} dataSemana;
+
+char* obterDiaDaSemana(int __cod_data) {
+  switch (__cod_data) {
+    case SEGUNDA:
+      return "Segunda";
+    case TERCA:
+      return "Terça";
+    case QUARTA:
+      return "Quarta";
+    case QUINTA:
+      return "Quinta";
+    case SEXTA:
+      return "Sexta";
+    case SABADO:
+      return "Sabado";
+  }
+}
 
 //******************************************************************************
 // Descrição
@@ -29,7 +54,7 @@ void preencherVendas(double __tabela[LINHA][COLUNA]) {
   for (semana = INICIALIZADOR; semana < LINHA; semana++) {
     printf("Semana %i\n", semana + 1);
     for (diaDaSemana = INICIALIZADOR; diaDaSemana < COLUNA; diaDaSemana++) {
-      printf("Dia %i: ", diaDaSemana);
+      printf("Dia %s: ", obterDiaDaSemana(diaDaSemana));
       scanf("%lf", &__tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
@@ -46,9 +71,10 @@ void preencherVendas(double __tabela[LINHA][COLUNA]) {
 void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   for (semana = INICIALIZADOR; semana < LINHA; semana++) {
-    printf("Semana %i\n", semana);
+    printf("Semana %i\n", semana + 1);
     for (diaDaSemana = INICIALIZADOR; diaDaSemana < COLUNA; diaDaSemana++) {
-      printf("Dia: %i R$: %.2f\n", diaDaSemana, __tabela[semana][diaDaSemana]);
+      printf("Dia %s R$: %.2f\n", obterDiaDaSemana(diaDaSemana),
+             __tabela[semana][diaDaSemana]);
     }  // diaDaSemana
   }    // Semana
 }
