@@ -185,4 +185,3 @@ char* obterDiaDaSemana(int __cod_data) {
     case SABADO:
       return "Sabado";
   }
-}
