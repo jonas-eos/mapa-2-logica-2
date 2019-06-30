@@ -114,7 +114,7 @@ int main() {
 // Definições dos métodos
 
 //******************************************************************************
-void preencherVendas(double __tabela[LINHA][COLUNA]){
+void preencherVendas(double __tabela[LINHA][COLUNA]) {
   int semana, diaDaSemana;
   for (semana = INICIALIZADOR; semana < LINHA; semana++) {
     printf("Semana %i\n", semana + 1);
