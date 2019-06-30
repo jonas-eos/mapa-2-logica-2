@@ -109,6 +109,7 @@ int main() {
   } while (!finalizarPrograma);
   return EXIT_SUCCESS;
 }
+
 //##############################################################################
 // Definições dos métodos
 
