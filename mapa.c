@@ -27,14 +27,12 @@ enum indexes {
 };
 
 /// Identificadores dos dias da semana
-enum dia_semana {
-  SEGUNDA,
-  TERCA,
-  QUARTA,
-  QUINTA,
-  SEXTA,
-  SABADO
-};
+enum dia_semana { SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO };
+
+//##############################################################################
+// Variáveis globais
+logico cadastroRealizado;
+
 //##############################################################################
 // Métodos
 
@@ -101,9 +99,9 @@ void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
 
     // Pausar a tela se a semana for anterior á ultima
     // semana definida pela constante LINHA
-    if(semana < LINHA - 1)
-    system("pause");
-  }    // Semana
+    if (semana < LINHA - 1)
+      system("pause");
+  }  // Semana
 }
 
 //******************************************************************************
@@ -145,24 +143,33 @@ unsigned short int menu() {
 //##############################################################################
 // Programa principal
 int main() {
+  cadastroRealizado = FALSO;
   double vendas[LINHA][COLUNA] = {INICIALIZADOR};
   logico finalizarPrograma = FALSO;
   do {
-     system("clear||cls");
+    system("clear||cls");
     switch (menu()) {
       case CADASTRAR:
         preencherVendas(vendas);
+        cadastroRealizado = VERDADEIRO;
         break;
       case EXIBIR_VENDAS:
-        exibirVendasDiaria(vendas);
+        if (cadastroRealizado)
+          exibirVendasDiaria(vendas);
+        else
+          puts("Não existe preços de vendas neste mês!");
         break;
       case CALCULAR_MEDIA:
-        printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
+        if (cadastroRealizado)
+          printf("Média de vedas do mês: %.2f\n", calcularMediaDoMes(vendas));
+        else
+          puts("Não existe preços de vendas neste mês!");
         break;
       default:
         finalizarPrograma = VERDADEIRO;
     }
-    system("pause");
+    if (!finalizarPrograma)
+      system("pause");
   } while (!finalizarPrograma);
   return EXIT_SUCCESS;
 }
