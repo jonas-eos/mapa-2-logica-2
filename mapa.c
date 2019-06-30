@@ -98,6 +98,11 @@ void exibirVendasDiaria(const double __tabela[LINHA][COLUNA]) {
       printf("Dia %s R$: %.2f\n", obterDiaDaSemana(diaDaSemana),
              __tabela[semana][diaDaSemana]);
     }  // diaDaSemana
+
+    // Pausar a tela se a semana for anterior á ultima
+    // semana definida pela constante LINHA
+    if(semana < LINHA - 1)
+    system("pause");
   }    // Semana
 }
 
@@ -143,6 +148,7 @@ int main() {
   double vendas[LINHA][COLUNA] = {INICIALIZADOR};
   logico finalizarPrograma = FALSO;
   do {
+     system("clear||cls");
     switch (menu()) {
       case CADASTRAR:
         preencherVendas(vendas);
